@@ -6,9 +6,7 @@ volumes:
 
 services:
   geth:
-    build:
-      context: ./geth
-      dockerfile: Dockerfile.geth
+    image: "ethpandaops/geth:4844-devnet-6-2d586a9"
     ports:
       - '8545:8545'
       - 0.0.0.0:${EL_P2P_PORT:-30303}:${EL_P2P_PORT:-30303}/tcp
@@ -29,9 +27,7 @@ services:
         target: /config/genesis.json
 
   lighthouse:
-    build:
-      context: ./lighthouse
-      dockerfile: Dockerfile.lighthouse
+    image: "ethpandaops/lighthouse:deneb-free-blobs-4a79328"
     ports:
       - "5052:5052"
       - "5054:5054"
